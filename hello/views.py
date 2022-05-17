@@ -4,7 +4,6 @@ from .forms import HelloForm
 # Create your views here.
 
 def index( request ):
-    data = Friend.objects.all()
     params = {
         'title':'Hello',
         'message':'all friends.',
