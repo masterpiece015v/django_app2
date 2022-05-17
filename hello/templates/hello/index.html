@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>{{title}}</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" crossorigin="anonymous">
+    </head>
+    <body>
+        <div class="container">
+        <h1>{{message|safe}}</h1>
+        <form action="{% url 'index' %}" method="post">
+            {% csrf_token %}
+            {{form}}
+            <input type="submit" value="click" class="btn btn-primary">
+        </form>
+        <table class="table">
+            <tr>
+                <th>ID</th>
+                <th>NAME</th>
+                <th>GENDER</th>
+                <th>MAIL</th>
+                <th>AGE</th>
+                <th>BIRTHDAY</th>
+            </tr>
+        {% for item in data %}
+        <tr>
+            <td>{{item.id}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.gender}}</td>
+            <td>{{item.mail}}</td>
+            <td>{{item.age}}</td>
+            <td>{{item.birthday}}</td>
+        </tr>
+        {% endfor %}
+        </table>
+    </div>
+    </body>
+</html>
